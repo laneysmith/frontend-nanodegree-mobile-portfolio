@@ -1,7 +1,7 @@
 {
-  "name": "frontend-nanodegree-mobile-portfolio",
+  "name": "project4",
   "version": "1.0.0",
-  "description": "Grunt file for project 4",
+  "description": "project 4 for nanodegree",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
