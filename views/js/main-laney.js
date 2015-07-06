@@ -448,18 +448,19 @@ var resizePizzas = function(size) {
     return dx;
   }
 
-// Created this external global variable to replace document.querySelectorAll(".randomPizzaContainer") in changePizzaSizes so it only has to be run once
-var pizzaElement = document.getElementsByClassName("randomPizzaContainer");
-
   // Iterates through pizza elements on the page and changes their widths
- function changePizzaSizes(size) {
-   // Pulled the dx & newwidth variables out of the for loop so they don't have to run with each loop
-   var dx = determineDx(pizzaElement[1], size);
-   var newwidth = (pizzaElement[1].offsetWidth + dx) + 'px';
-   for (var i = 0, len = pizzaElement.length; i < len; i++) {
-     pizzaElement[i].style.width = newwidth;
-   }
- }
+  function changePizzaSizes(size) {
+    var dx = determineDx(randomPizzas[i], size);
+    var newwidth = (randomPizzas[i].offsetWidth + dx) + 'px';
+
+    for (var i = 0; i < randomPizzas.length; i++) {
+      randomPizzas[i].style.width = newwidth;
+    }
+  }
+
+  // Moved the following line out from changePizzaSizes so that it is only run one time.
+  var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+
 
   changePizzaSizes(size);
 
@@ -472,10 +473,9 @@ var pizzaElement = document.getElementsByClassName("randomPizzaContainer");
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
-
-var pizzasDiv = document.getElementById("randomPizzas"); // Pulled out of for loop below so it only makes 1 call to the DOM
 // This for-loop actually creates and appends all of the pizzas when the page loads
 for (var i = 2; i < 100; i++) {
+  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -507,11 +507,12 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClassName('mover'); // replaced var items = document.querySelectorAll('.mover')
-  var phase = []; // declared variable array outside of for loop so it isn't created every time the loop is executed
-  var docbodyscrolltop = document.body.scrollTop / 1250;  // Moved the following line up a level, out of the for loop, so it is only run once.
+  var items = document.querySelectorAll('.mover');
+  // Moved the following line up a level, out of the for loop, so it is only run once.
+  var docbodyscrolltop = document.body.scrollTop / 1250;
+
   for (var i = 0; i < items.length; i++) {
-    phase = Math.sin(docbodyscrolltop + (i % 5));
+    var phase = Math.sin(docbodyscrolltop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -529,22 +530,18 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
-  var height = screen.height;
   var s = 256;
-  var numberOfPizzas = (height/s)*cols;
-  var elem = document.createElement('img'); // Pulled this out of the for loop so it's only declared once
-  elem.className = 'mover';
-  elem.src = "images/pizza.png";
-  elem.style.height = "100px";
-  elem.style.width = "73.333px";
-  for (var i = 0; i < numberOfPizzas; i++) {
-    var newelem = elem.cloneNode(true); // Cloned elem node here
-    newelem.basicLeft = (i % cols) * s;
-    newelem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.getElementById("movingPizzas1").appendChild(newelem);
+  for (var i = 0; i < 200; i++) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.basicLeft = (i % cols) * s;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
