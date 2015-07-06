@@ -9,6 +9,7 @@ To get started, check out the repository, inspect the code,
 ####Part 1: Optimize PageSpeed Insights score for index.html
 
 Source code: https://github.com/laneysmith/frontend-nanodegree-mobile-portfolio/
+
 Live site: http://laneysmith.github.io/frontend-nanodegree-mobile-portfolio/
 
 Improved PageSpeed Insights score to 95/100 for mobile & 96/100 for desktop for http://laneysmith.github.io/frontend-nanodegree-mobile-portfolio/index.html
@@ -23,6 +24,7 @@ This was accomplished by...
 ####Part 2: Optimize Frames per Second in pizza.html
 
 Source code: https://github.com/laneysmith/frontend-nanodegree-mobile-portfolio/views/
+
 Live site: http://laneysmith.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html
 
 Optimized http://laneysmith.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html to comply with 60 fps rule
