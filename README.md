@@ -8,7 +8,7 @@ To get started, check out the repository, inspect the code,
 
 ####Part 1: Optimize PageSpeed Insights score for index.html
 
-Source code: https://github.com/laneysmith/frontend-nanodegree-mobile-portfolio/tree/gh-pages
+Source code: https://github.com/laneysmith/frontend-nanodegree-mobile-portfolio/
 Live site: http://laneysmith.github.io/frontend-nanodegree-mobile-portfolio/
 
 Improved PageSpeed Insights score to 95/100 for mobile & 96/100 for desktop for http://laneysmith.github.io/frontend-nanodegree-mobile-portfolio/index.html
@@ -22,14 +22,14 @@ This was accomplished by...
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-Source code: https://github.com/laneysmith/frontend-nanodegree-mobile-portfolio/tree/gh-pages/views
+Source code: https://github.com/laneysmith/frontend-nanodegree-mobile-portfolio/views/
 Live site: http://laneysmith.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html
 
 Optimized http://laneysmith.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html to comply with 60 fps rule
 
 This was accomplish by...
 * moving the creation of var randomPizzas out of changePizzaSizes, thus making it a global variable that is only run once instead with each iteration of the changePizzaSizes function
-* creating a variable for document.body.scrollTop / 1250 & moving it outside of the for loop in the updatePositions function 
+* creating a variable for document.body.scrollTop / 1250 & moving it outside of the for loop in the updatePositions function
 
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
